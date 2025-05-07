@@ -7,7 +7,8 @@ export const loginSchema = z.object({
     .min(1, { message: "Email is required" })
     .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, { message: "Invalid email address" }),
   password: z
-    .string()
+    .string( {message: "Password is required"})
+    .min(1, { message: "Password is required" })
     .min(3, { message: "Password must be at least 3 characters" })
     .regex(/^[A-Za-z]+$/, { message: "Только латинские буквы" }),
   rememberMe: z.boolean()
